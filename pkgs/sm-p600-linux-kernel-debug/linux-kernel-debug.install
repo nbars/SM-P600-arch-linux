@@ -1,0 +1,21 @@
+
+usage() {
+  uid=$(id -u)
+  sudo='sudo'
+  if [[ "$uid" == "0" ]]; then
+    sudo=''
+  fi
+  $sudo mkinitcpio -p linux-kernel-debug
+  tput setaf 3
+  echo "Please run sudo sm-p600-flash-tool flash-recovery linux-kernel-debug"
+  echo "to flash the new kernel!"
+  tput sgr0
+}
+
+post_install() {
+  usage
+}
+
+post_upgrade() {
+  usage
+}

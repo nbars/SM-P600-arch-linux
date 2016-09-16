@@ -1,0 +1,9 @@
+# mkinitcpio preset file for the 'sm-p600-linux-kernel-debug' package
+
+ALL_config="/etc/sm-p600/mkinitcpio/mkinitcpio-linux-kernel-debug.conf"
+ALL_kver="none"
+
+PRESETS=('default')
+
+default_image="/boot/linux-kernel-debug-initramfs.img"
+#default_options=""

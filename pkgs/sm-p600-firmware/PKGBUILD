@@ -1,0 +1,27 @@
+# Maintainer: Nils Bars <arch@theinbox.de>
+
+if [[ "$BUILD_TYPE" == "develop" ]]; then
+  branch="#branch=dev"
+else
+  branch=""
+fi
+
+pkgname=sm-p600-firmware
+pkgver=1.0
+pkgrel=0
+pkgdesc="x"
+arch=('any')
+license=('GPL2')
+depends=('')
+#makedepends=('git')
+source=("git+https://github.com/nbars/SM-P600-firmware.git${branch}")
+
+md5sums=('SKIP')
+
+build() {
+  cd ${srcdir}/SM-P600-firmware
+}
+
+package() {
+  cp -r ${srcdir}/SM-P600-firmware/* ${pkgdir}/
+}

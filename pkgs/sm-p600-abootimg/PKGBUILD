@@ -1,0 +1,31 @@
+# Maintainer: Nils Bars <arch@theinbox.de>
+
+if [[ "$BUILD_TYPE" == "develop" ]]; then
+  branch="#branch=dev"
+else
+  branch=""
+fi
+
+pkgname=sm-p600-abootimg
+pkgver=1.0.0
+pkgrel=0
+pkgdesc="x"
+arch=('any')
+#url=""
+license=('GPL2')
+depends=('cpio')
+makedepends=('')
+source=("git+https://github.com/nbars/SM-P600-abootimg.git${branch}")
+
+md5sums=('SKIP')
+
+build() {
+  cd ${srcdir}/SM-P600-abootimg
+}
+
+package() {
+  cd ${srcdir}/SM-P600-abootimg
+  install -d "${pkgdir}/usr/bin" "${pkgdir}/usr/share/man/man1/"
+  install -t "${pkgdir}/usr/bin" abootimg abootimg-pack-initrd abootimg-unpack-initrd
+  install -t "${pkgdir}/usr/share/man/man1/" abootimg.1.gz
+}

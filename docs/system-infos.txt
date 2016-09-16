@@ -1,0 +1,561 @@
+# <src>                                      <mnt_point>    <type>  <mnt_flags and options>                     <fs_mgr_flags>
+/dev/block/mmcblk0p3    /efs            ext4    default   recoveryonly
+/dev/block/mmcblk0p9    /boot   emmc  default   recoveryonly
+/dev/block/mmcblk0p10   /recovery   emmc  default   recoveryonly
+/dev/block/mmcblk0p19   /cache        ext4    default   recoveryonly
+/dev/block/mmcblk0p20   /system       ext4    default   recoveryonly
+/dev/block/mmcblk0p21   /data   ext4    default   wait,length=-16384
+/dev/block/mmcblk0p16   /preload    ext4    default   recoveryonly
+/dev/block/mmcblk1p1    /sdcard   vfat    default   recoveryonly
+/dev/block/mmcblk0p13   /modem    emmc  default   recoveryonly
+
+/dev/block/mmcblk0p8 - download-mode Partition?
+/dev/block/mmcblk0p16 - vendor files? / selinux ? (hrs_and_b2b_preinstall_4.0.1_final.apk)
+
+
+--------------------------------------------------------------------------------
+
+130|root@lt03wifi:/data/media/0 # mount
+rootfs / rootfs ro,relatime 0 0
+tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,size=1420992k,nr_inodes=114531,mode=755 0 0
+devpts /dev/pts devpts rw,seclabel,relatime,gid=5,mode=620 0 0
+none /dev/cpuctl cgroup rw,relatime,cpu 0 0
+proc /proc proc rw,relatime 0 0
+binfmt_misc /proc/sys/fs/binfmt_misc binfmt_misc rw,relatime 0 0
+sysfs /sys sysfs rw,seclabel,relatime 0 0
+selinuxfs /sys/fs/selinux selinuxfs rw,relatime 0 0
+none /sys/fs/cgroup tmpfs rw,seclabel,relatime,size=1420992k,nr_inodes=114531,mode=750,gid=1000 0 0
+/sys/kernel/debug /sys/kernel/debug debugfs rw,relatime 0 0
+none /acct cgroup rw,relatime,cpuacct 0 0
+tmpfs /mnt/secure tmpfs rw,seclabel,relatime,size=1420992k,nr_inodes=114531,mode=700 0 0
+tmpfs /mnt/asec tmpfs rw,seclabel,relatime,size=1420992k,nr_inodes=114531,mode=755,gid=1000 0 0
+tmpfs /mnt/obb tmpfs rw,seclabel,relatime,size=1420992k,nr_inodes=114531,mode=755,gid=1000 0 0
+/dev/block/mmcblk0p20 /system ext4 ro,seclabel,noatime,data=ordered 0 0
+/dev/block/mmcblk0p3 /efs ext4 rw,seclabel,nosuid,nodev,noatime,discard,journal_checksum,journal_async_commit,noauto_da_alloc,data=ordered 0 0
+/dev/block/mmcblk0p19 /cache ext4 rw,seclabel,nosuid,nodev,noatime,discard,journal_checksum,journal_async_commit,noauto_da_alloc,errors=panic,data=ordered 0 0
+/dev/block/mmcblk0p16 /preload ext4 ro,seclabel,nosuid,nodev,noatime,data=ordered 0 0
+/dev/block/mmcblk0p21 /data ext4 rw,seclabel,nosuid,nodev,noatime,discard,journal_checksum,journal_async_commit,noauto_da_alloc,data=ordered 0 0
+/dev/block/platform/dw_mmc.0/by-name/PERSDATA /persdata/absolute ext4 rw,seclabel,nosuid,nodev,relatime,data=ordered 0 0
+/data/knox/sdcard /mnt/shell/knox-emulated sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1000,gid=1000,derive=none 0 0
+/data/knox/secure_fs/enc_media /mnt/shell/enc_media sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1000,gid=1000,derive=none,reserved=20MB 0 0
+/data/media /mnt/shell/emulated sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/dev/block/loop0 /su ext4 rw,seclabel,noatime,data=ordered 0 0
+/dev/block/vold/179:33 /mnt/media_rw/extSdCard vfat rw,dirsync,seclabel,nosuid,nodev,noexec,noatime,nodiratime,uid=1023,gid=1023,fmask=0007,dmask=0007,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+/mnt/media_rw/extSdCard /storage/extSdCard sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=unified 0 0
+/data/media /storage/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/legacy/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /storage/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0 sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/data/media /mnt/shell/emulated/0/Android/obb sdcardfs rw,seclabel,nosuid,nodev,relatime,uid=1023,gid=1023,derive=legacy,reserved=20MB 0 0
+/dev/loop1 /data/local/linux ext4 rw,seclabel,relatime 0 0
+proc /data/local/linux/proc proc rw,relatime 0 0
+sys /data/local/linux/sys sysfs rw,seclabel,relatime 0 0
+selinuxfs /data/local/linux/sys/fs/selinux selinuxfs rw,relatime 0 0
+tmpfs /data/local/linux/dev tmpfs rw,seclabel,nosuid,relatime,size=1420992k,nr_inodes=114531,mode=755 0 0
+devpts /data/local/linux/dev/pts devpts rw,seclabel,relatime,gid=5,mode=620 0 0
+devpts /dev/pts devpts rw,seclabel,relatime,gid=5,mode=620 0 0
+tmpfs /data/local/linux/dev/shm tmpfs rw,seclabel,relatime 0 0
+tmpfs /dev/shm tmpfs rw,seclabel,relatime 0 0
+
+--------------------------------------------------------------------------------
+
+1|root@lt03wifi:/data/media/0 # df                                             
+Filesystem                               Size     Used     Free   Blksize
+/dev                                     1.4G    72.0K     1.4G      4.0K
+/sys/fs/cgroup                           1.4G    12.0K     1.4G      4.0K
+/mnt/secure                              1.4G     0.0K     1.4G      4.0K
+/mnt/asec                                1.4G     0.0K     1.4G      4.0K
+/mnt/obb                                 1.4G     0.0K     1.4G      4.0K
+/system                                  2.3G     2.1G   240.8M      4.0K
+/efs                                    19.7M     4.3M    15.4M      4.0K
+/cache                                 196.8M    10.8M   186.0M      4.0K
+/preload                                19.7M    12.6M     7.0M      4.0K
+/data                                   11.9G     7.6G     4.3G      4.0K
+/persdata/absolute                      11.8M     4.1M     7.7M      4.0K
+/mnt/shell/knox-emulated                11.9G     7.6G     4.3G      4.0K
+/mnt/shell/enc_media                    11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated                     11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0/Android/obb       11.9G     7.6G     4.3G      4.0K
+/su                                     31.5M     4.6M    26.9M      4.0K
+/mnt/media_rw/extSdCard                 29.5G     3.9G    25.5G     32.0K
+/storage/extSdCard                      29.5G     3.9G    25.5G     32.0K
+/storage/emulated/0                     11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0/Android/obb         11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy                11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy/Android/obb    11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0                     11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0                   11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy                11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0/Android/obb         11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0/Android/obb       11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy/Android/obb    11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy/Android/obb    11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0/Android/obb         11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0/Android/obb       11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy                11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy/Android/obb    11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy                11.9G     7.6G     4.3G      4.0K
+/storage/emulated/legacy/Android/obb    11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0                     11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0/Android/obb         11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0                   11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0/Android/obb       11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0                     11.9G     7.6G     4.3G      4.0K
+/storage/emulated/0/Android/obb         11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0                   11.9G     7.6G     4.3G      4.0K
+/mnt/shell/emulated/0/Android/obb       11.9G     7.6G     4.3G      4.0K
+/data/local/linux                        1.9G   440.0M     1.5G      4.0K
+/data/local/linux/dev                    1.4G    72.0K     1.4G      4.0K
+/data/local/linux/dev/shm                1.4G     0.0K     1.4G      4.0K
+/dev/shm                                 1.4G     0.0K     1.4G      4.0K
+
+--------------------------------------------------------------------------------
+
+127|root@lt03wifi:/data/media/0 # blkid                                        
+/dev/loop0: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/loop1: UUID="496beace-ec0e-4a6e-8997-4e9ec6cc429b" TYPE="ext4" 
+/dev/block/vnswap0: LABEL="swap" UUID="b19377ca-7847-4917-e5f4-8f9ee546b7c1" TYPE="swap" 
+/dev/block/mmcblk0p3: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/block/mmcblk0p16: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/block/mmcblk0p17: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/block/mmcblk0p19: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/block/mmcblk0p20: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/block/mmcblk0p21: UUID="57f8f4bc-abf4-655f-bf67-946fc0f9f25b" TYPE="ext4" 
+/dev/block/mmcblk1p1: UUID="85EC-1E05" TYPE="vfat" 
+
+--------------------------------------------------------------------------------
+
+root@lt03wifi:/data/media/0 # cat /proc/cmdline | grep enfo                    
+console=ram 2oglevel=4 sec_debug.level=0 sec_watchdog.sec_pet=5 androidboot.debug_level=0x4f4c sec_log=0x200000@0x26000000 sec_tima_log=0x200000@0x26202000 sec_avc_log=0x40000@0x26404000 s3cfb.bootloaderfb=0x67000000 lcdtype=0 consoleblank=0 lpj=3977216 vmalloc=512m oops=panic pmic_info=75 cordon=2f0e0acb856072895ee0fae055e060f7 connie=SM-P600_OPEN_EUR_a3db453ebc9f001dcaee374d1db96f93 androidboot.emmc_checksum=3 androidboot.boot_salescode= androidboot.odin_download=1 androidboot.bootloader=P600XXUDOJ3 androidboot.selinux=enforcing androidboot.hardware=universal5420 androidboot.warranty_bit=1 androidboot.sec_atd.tty=/dev/ttySAC2 androidboot.serialno=430094b2965cc00d snd_soc_core.pmdown_time=1000
+
+nils@l ..F-Auto-Root-lt03wifi-lt03wifixx-smp600 % heimdall print-pit
+Heimdall v1.4.1
+
+Copyright (c) 2010-2014 Benjamin Dobell, Glass Echidna
+http://www.glassechidna.com.au/
+
+This software is provided free of charge. Copying and redistribution is
+encouraged.
+
+If you appreciate this software and you would like to support future
+development please consider donating:
+http://www.glassechidna.com.au/donate/
+
+Initialising connection...
+Detecting device...
+Claiming interface...
+Setting up interface...
+
+Initialising protocol...
+Protocol initialisation successful.
+
+Beginning session...
+
+Some devices may take up to 2 minutes to respond.
+Please be patient!
+
+Session begun.
+
+Downloading device's PIT file...
+PIT file download successful.
+
+Entry Count: 24
+Unknown 1: 1598902083
+Unknown 2: 844251476
+Unknown 3: 21324
+Unknown 4: 13641
+Unknown 5: 12596
+Unknown 6: 48
+Unknown 7: 0
+Unknown 8: 0
+
+
+--- Entry #0 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 80
+Attributes: 2 (STL Read-Only)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 0
+Partition Block Count: 2046
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: BOOTLOADER
+Flash Filename: sboot.bin
+FOTA Filename: 
+
+
+--- Entry #1 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 70
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 34
+Partition Block Count: 16
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: PIT
+Flash Filename: -
+FOTA Filename: 
+
+
+--- Entry #2 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 71
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 50
+Partition Block Count: 2048
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: MD5HDR
+Flash Filename: md5.img
+FOTA Filename: 
+
+
+--- Entry #3 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 1
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 8192
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: BOTA0
+Flash Filename: -
+FOTA Filename: 
+
+
+--- Entry #4 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 2
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 16384
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: BOTA1
+Flash Filename: -
+FOTA Filename: 
+
+
+--- Entry #5 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 3
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 24576
+Partition Block Count: 40960
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: EFS
+Flash Filename: efs.img
+FOTA Filename: 
+
+
+--- Entry #6 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 4
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 65536
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: m9kefs1
+Flash Filename: m9kefs1.bin
+FOTA Filename: 
+
+
+--- Entry #7 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 5
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 73728
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: m9kefs2
+Flash Filename: m9kefs2.bin
+FOTA Filename: 
+
+
+--- Entry #8 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 6
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 81920
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: m9kefs3
+Flash Filename: m9kefs3.bin
+FOTA Filename: 
+
+
+--- Entry #9 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 7
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 90112
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: CARRIER
+Flash Filename: carrier.img
+FOTA Filename: 
+
+
+--- Entry #10 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 8
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 98304
+Partition Block Count: 16384
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: PARAM
+Flash Filename: param.bin
+FOTA Filename: 
+
+
+--- Entry #11 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 9
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 114688
+Partition Block Count: 16384
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: BOOT
+Flash Filename: boot.img
+FOTA Filename: 
+
+
+--- Entry #12 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 10
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 131072
+Partition Block Count: 16384
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: RECOVERY
+Flash Filename: recovery.img
+FOTA Filename: 
+
+
+--- Entry #13 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 11
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 147456
+Partition Block Count: 16384
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: OTA
+Flash Filename: -
+FOTA Filename: 
+
+
+--- Entry #14 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 12
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 163840
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: CDMA-RADIO
+Flash Filename: modem_cdma.bin
+FOTA Filename: 
+
+
+--- Entry #15 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 13
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 172032
+Partition Block Count: 40960
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: RADIO
+Flash Filename: modem.bin
+FOTA Filename: 
+
+
+--- Entry #16 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 14
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 212992
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: TOMBSTONES
+Flash Filename: tombstones.img
+FOTA Filename: 
+
+
+--- Entry #17 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 15
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 221184
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: TDATA
+Flash Filename: tdata.img
+FOTA Filename: 
+
+
+--- Entry #18 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 16
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 229376
+Partition Block Count: 40960
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: HIDDEN
+Flash Filename: hidden.img
+FOTA Filename: 
+
+
+--- Entry #19 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 17
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 270336
+Partition Block Count: 24576
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: PERSDATA
+Flash Filename: persdata.img
+FOTA Filename: 
+
+
+--- Entry #20 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 18
+Attributes: 5 (Read/Write)
+Update Attributes: 1 (FOTA)
+Partition Block Size/Offset: 294912
+Partition Block Count: 8192
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: RESERVED2
+Flash Filename: -
+FOTA Filename: 
+
+
+--- Entry #21 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 19
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 303104
+Partition Block Count: 409600
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: CACHE
+Flash Filename: cache.img
+FOTA Filename: 
+
+
+--- Entry #22 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 20
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 712704
+Partition Block Count: 4931584
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: SYSTEM
+Flash Filename: system.img
+FOTA Filename: 
+
+
+--- Entry #23 ---
+Binary Type: 0 (AP)
+Device Type: 2 (MMC)
+Identifier: 21
+Attributes: 5 (Read/Write)
+Update Attributes: 5 (FOTA)
+Partition Block Size/Offset: 5644288
+Partition Block Count: 0
+File Offset (Obsolete): 0
+File Size (Obsolete): 0
+Partition Name: USERDATA
+Flash Filename: userdata.img
+FOTA Filename: remained
+
+
+Ending session...
+Rebooting device...
+Releasing device interface...
+
+--------------------------------------------------------------------------------
+
+/dev/block/mmcblk0p21   /data   ext4    default   wait,length=-16384
+/data/media/0/linux.img

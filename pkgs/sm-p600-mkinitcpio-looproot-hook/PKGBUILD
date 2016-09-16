@@ -1,0 +1,30 @@
+# Maintainer: Nils Bars <arch@theinbox.de>
+
+if [[ "$BUILD_TYPE" == "develop" ]]; then
+  branch="#branch=dev"
+else
+  branch=""
+fi
+
+pkgname=mkinitcpio-looproot-hook
+pkgver=1.0
+pkgrel=0
+pkgdesc="x"
+arch=('any')
+#url=""
+license=('GPL2')
+depends=('mkinitcpio')
+#makedepends=('')
+source=("git+https://github.com/nbars/SM-P600-mkinitcpio-looproot-hook.git${branch}")
+Options=('!strip')
+
+md5sums=('SKIP')
+
+build() {
+  cd ${srcdir}/SM-P600-mkinitcpio-looproot-hook
+
+}
+
+package() {
+  cp -r ${srcdir}/SM-P600-mkinitcpio-looproot-hook/* ${pkgdir}/
+}

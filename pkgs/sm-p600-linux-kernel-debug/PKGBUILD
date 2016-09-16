@@ -1,0 +1,59 @@
+# Maintainer: Nils Bars <arch@theinbox.de>
+
+if [[ "$BUILD_TYPE" == "develop" ]]; then
+  branch="#branch=dev"
+else
+  branch=""
+fi
+
+_kernel_name=linux-kernel-debug
+pkgname=sm-p600-${_kernel_name}
+pkgver=3.4.39_1
+pkgrel=0
+pkgdesc="x"
+arch=('any')
+#url=""
+license=('GPL2')
+depends=('mkinitcpio' 'sm-p600-firmware' 'sm-p600-kernel-tools' 'xz')
+#makedepends=('')
+source=(
+  "git+https://github.com/nbars/SM-P600-linux-kernel.git${branch}"
+  "mkinitcpio-${_kernel_name}.conf" "${_kernel_name}.preset"
+  "60-persistent-v4l.rules")
+options=('!makeflags' '!strip' '!buildflags')
+install="${_kernel_name}.install"
+
+build() {
+  cd ${srcdir}/SM-P600-linux-kernel
+
+  if [[ -z "$CROSS_COMPILE" ]]; then
+    echo "WARNING: If this isn't an ARM device, you have to set CROSS_COMPILE"
+  else
+    if [[ ! -f "${CROSS_COMPILE}gcc" ]]; then
+      echo "Couldn't find ${CROSS_COMPILE}gcc, is CROSS_COMPILE set correctly?"
+      exit 1
+    fi
+  fi
+  
+#  if [ -e '/usr/bin/ccache' ]; then
+#    export CROSS_COMPILE="ccache $CROSS_COMPILE"
+#  fi
+
+  export ARCH=arm
+  make mrproper
+  #Select debug cfg here
+  make native_linux_debug_defconfig
+  make -j5
+}
+
+package() {
+  install -D -m 644 ${srcdir}/SM-P600-linux-kernel/arch/arm/boot/zImage ${pkgdir}/boot/${_kernel_name}.zImage
+  install -D -m 644 ${srcdir}/mkinitcpio-${_kernel_name}.conf ${pkgdir}/etc/sm-p600/mkinitcpio/mkinitcpio-${_kernel_name}.conf
+  install -D -m 644 ${srcdir}/${_kernel_name}.preset ${pkgdir}/etc/mkinitcpio.d/${_kernel_name}.preset
+  install -D -m 644 ${srcdir}/60-persistent-v4l.rules ${pkgdir}/etc/udev/rules.d/60-persistent-v4l.rules
+  mkdir -p ${pkgdir}/usr/lib/modules/3.4.39
+}
+md5sums=('SKIP'
+         '4c5a1f51a8e63789a9a759274cece578'
+         'b487f02c10c9e6f7851386ee72aa5be9'
+         '77e9d5e53628fc8cd9148044c6632ef9')
