@@ -54,6 +54,6 @@ package() {
   mkdir -p ${pkgdir}/usr/lib/modules/3.4.39
 }
 md5sums=('SKIP'
-         '4c5a1f51a8e63789a9a759274cece578'
+         '6085891576e84bf0771e96cb7bb35c03'
          'b487f02c10c9e6f7851386ee72aa5be9'
          '77e9d5e53628fc8cd9148044c6632ef9')
