@@ -1,6 +1,7 @@
 #!/bin/bash
 
 readonly out_dir=./out
+readonly prebuild_dir=./prebuild
 
 usage() {
   echo $0 all
@@ -40,6 +41,10 @@ clean_tmp() {
   rm -f */*pkg.tar.xz
 }
 
+copy_prebuilds() {
+  mkdir -p "$prebuild_dir"
+  cp -v "$prebuild_dir/"* "$out_dir/"
+}
 
 mkdir -p out
 export BUILD_TYPE=develop
@@ -54,10 +59,12 @@ fi
 case "$1" in
   all)
   build_all
+  copy_prebuilds
     ;;
   list)
   shift
   build_package "$1"
+  copy_prebuilds
     ;;
   clean)
   clean_tmp
