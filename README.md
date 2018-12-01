@@ -2,7 +2,7 @@
 
 **UNDER CONSTRUCTION**
 
-This is a collection of packages that allows running Arch Linux on the
+This is a collection of packages that allow to run Arch Linux on the
 SM-P600 (Samsung Galaxy Note 10.1 2014 WIFI).
 
 ### Current state
