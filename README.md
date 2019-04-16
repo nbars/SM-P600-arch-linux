@@ -15,18 +15,6 @@ For creating a base image of Arch Linux, we're using the app [Linux deploy](http
 The app requires a rooted android device and a permissive Linux kernel (SELinux disabled) to work.
 A permissive kernel for the SM-P600 is available [here](https://github.com/nbars/SM-P600-Permissive-Kernel).
 
-#### Fixing Linux Deploy
-**Bug seems to be fixed in the current release** 
-
-Currently (14.09.16) there is a bug in Linux Deploy that leads to an error
-while installing Arch Linux on the SM-P600. To resolve this issue, the package lz4 has to be added to the dependencies of the Arch Linux installation script. This script is located at
-    
-    /data/data/ru.meefik.linuxdeploy/files/share
-
-in line 1505 the package lz4 must be added to the basic_packges string:
-
-    local basic_packages="lz4 filesystem acl...
-    
 #### Create basic image with Linux Deploy
 1. Start Linux Deploy and go into the configuration tab.
 2. Select armv7h as architecture
